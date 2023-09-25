@@ -2,13 +2,19 @@
 // User clicks Start to start quiz, (choose an answer, see feedback, go to next question) X5, when all questions are answered OR time is up, user will be at the Game Over screen and asked to enter initials for the high score page. User then has the option to go back to start or erase high scores. 
 
 
-// function startGame 
+// function startQuiz - hides start section, unhides 1st question section, starts timer
+
+function StartQuiz() {
+    startsection.style.display="none";
+}
 
 // function setNextQuestion 
 
 // function selectAnswer 
 
 // 1 object per question, make an array of objects
+
+var startPage =
 
 var questions = [{
     questionText: "When Nintendo was founded in 1889, what product did they manufacture?",
