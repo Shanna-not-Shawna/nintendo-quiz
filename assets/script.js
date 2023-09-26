@@ -3,20 +3,22 @@
 
 
 // function startQuiz - hides start section, unhides 1st question section, starts timer
+var startSection = document.getElementById("starter");
+var questionSection = document.getElementById("questions");
+var formSection = document.getElementById("form");
+var scoreBoard = document.getElementById("highscore");
+
 
 function StartQuiz() {
-    startsection.style.display="none";
+    startScreen.style.display="none";
 }
 
 // function setNextQuestion 
 
 // function selectAnswer 
 
-// 1 object per question, make an array of objects
 
-var startPage =
-
-var questions = [{
+questions = [{
     questionText: "When Nintendo was founded in 1889, what product did they manufacture?",
     choices: ["Board Games", "Playing Cards", "Electric Circuits", "Manga"],
     correctAnswer: "Playing Cards"
