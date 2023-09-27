@@ -94,16 +94,12 @@ function checkAnswer(isCorrect) {
     questionIndex++;
         if(questionIndex < myQuestions.length) {
             displayQuestion()
-
         } else {
             endQuiz();
         }
     //display if correct
-
     //increment questionIndex
-
     //if there are more questions call display question
-
     //if not call end quiz
 }
 
