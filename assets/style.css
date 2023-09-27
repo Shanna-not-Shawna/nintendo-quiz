@@ -2,3 +2,20 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.button {
+    background-color: gray;
+    border-radius: 12px;
+    border: 2px solid rgb(65, 65, 65);
+    color: rgb(65, 65,65);
+}
+
+.button:hover {
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid red;
+    color: red;
+}
+
+.hide{
+    display: none;
+}

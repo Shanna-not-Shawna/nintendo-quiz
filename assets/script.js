@@ -7,7 +7,8 @@ var startSection = document.getElementById("starter");
 var questionContainer = document.getElementById("questionSection");
 var formSection = document.getElementById("form");
 var scoreBoard = document.getElementById("highscore");
-
+var startButton = document.getElementById("start-btn");
+var countdownText = document.getElementById("countdown-text");
 
 
 
@@ -15,38 +16,48 @@ var scoreBoard = document.getElementById("highscore");
 // add event listener to listen for click on target 
 // startButton.addEventListener("click");
 
+
+// function startQuiz - hides start section, unhides question section which populates with 1st Q, starts timer
+startButton.addEventListener('click', startQuiz);
+
+function startQuiz() {
+    //hide start section
+    startSection.classList.add('hide');
+    //start timer
+    countdown();
+    //show question container
+    questionContainer.classList.remove('hide');
+    //show the 1st question
+    displayQuestion();
+}
+
+
+// add more time 
 function countdown() {
     var timeLeft = 10;
-  
+
     var timeInterval = setInterval(function () {
-    
-      if (timeLeft > 1) {
-        timerEl.textContent = timeLeft + ' seconds remaining';
-        timeLeft--;
-      } else {
-        timerEl.textContent = '';
-        // Use `clearInterval()` to stop the timer
-        clearInterval(timeInterval);
-        endQuiz();
-      }
+
+        if (timeLeft > 1) {
+            countdownText.textContent = timeLeft + ' seconds remaining';
+            timeLeft--;
+        } else {
+            countdownText.textContent = '';
+            // Use `clearInterval()` to stop the timer
+            clearInterval(timeInterval);
+            // endQuiz();
+        }
     }, 1000);
-  }
-
-
-// function startQuiz - hides start section, unhides 1st question section, starts timer
-function StartQuiz() {
-    startSection.style.display="none";
-    questionSection.style.display="block";
 }
 
 // function startTimer 
 // function setNextQuestion 
-// function selectAnswer
+// function selectAnswer use event.target buttons
 // form element wrapping an input for high score submit
 // function endQuiz
 
-
-myQuestions = [{
+var questionIndex = 0;
+var myQuestions = [{
     questionText: "When Nintendo was founded in 1889, what product did they manufacture?",
     choices: ["Board Games", "Playing Cards", "Electric Circuits", "Manga"],
     correctAnswer: "Playing Cards"
@@ -68,28 +79,56 @@ myQuestions = [{
     correctAnswer: "Mario Kart 8 Deluxe"
 }]
 
-// function displayQuestion () {
-//     var question = document.createElement("h2")
-//     question.textContent = myQuestions[currentQuestion].questionText
-//     questionsEl.append (questionText)
+function displayQuestion() {
+    questionContainer.innerHTML = "";
 
-// for (var i=0; 1 < myQuestions[currentQuestion].choices.length; i++)
-// var choiceButton = document.createElement("button")
-// choiceButton.textContent = myQuestions[currentQuestion].choices[i]
-// questionsEl.append (choiceButton)
-// }
-
-function showCurrentQuestion() {
     var currentQuestion = myQuestions[questionIndex];
-    var title = document.getElementById("question-text");
-    title.textContent = currentQuestion.questionText;
-    for (let i = 0; i < currentQuestion.questionChoices.length; i++) {
-        var choice = currentQuestion.questionChoices[i];
-        var li = document.getElementById(`answer-${i}`);
-        li.textContent = choice
-        li.dataset.correct = i === currentQuestion.correctAnswer;
+    var question = document.createElement("h2");
+
+    question.textContent = currentQuestion.questionText;
+    questionContainer.append(question)
+
+    for (var i = 0; i < currentQuestion.choices.length; i++) {
+        var choiceText = currentQuestion.choices[i];
+        var choiceButton = document.createElement("button");
+        choiceButton.classList.add("answer-btn");
+        choiceButton.dataset.correct = choiceText === currentQuestion.correctAnswer;
+        choiceButton.textContent = choiceText
+        questionContainer.append(choiceButton)
     }
 }
+
+function checkAnswer(isCorrect) {
+    console.log(isCorrect)
+    // increment score 
+
+    //display if correct
+
+    //increment questionIndex
+
+    //if there are more questions call display question
+
+    //if not call end quiz
+}
+
+function endQuiz(){
+    //show the form
+
+    //hide the quiz section
+
+    //do things with timer
+}
+
+//this function is called whenever the button on the form is clicked
+function saveScore(){
+    //save initals and score to local storage
+}
+
+document.addEventListener("click", function(event){
+    if(event.target.className !== "answer-btn") return;
+
+    checkAnswer(event.target.dataset.correct);
+})
 // myQuestions[0].questionText
 // myQuestions[0].choices[1]
 // myQuestions[0].correctAnswer
@@ -102,3 +141,4 @@ function showCurrentQuestion() {
 // myQuestions[1].correctAnswer
 
 
+//form button - local storage
