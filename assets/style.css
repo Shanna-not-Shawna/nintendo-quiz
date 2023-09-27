@@ -64,3 +64,18 @@
 #title {
     font-size: 35px;
 }
+
+#form {
+    text-align: center;
+    font-size: 35px;
+}
+
+#feedback {
+    color: green;
+    text-align: center;
+}
+
+#title {
+    font-size: 35px;
+    color: red;
+}

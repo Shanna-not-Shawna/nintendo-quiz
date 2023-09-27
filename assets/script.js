@@ -10,6 +10,7 @@ var scoreBoard = document.getElementById("highscore");
 var startButton = document.getElementById("start-btn");
 var countdownText = document.getElementById("countdown-text");
 var question = document.createElement("h2");
+var feedbackText = document.getElementById("feedback");
 
 // function startQuiz - hides start section, unhides question section which populates with 1st Q, starts timer
 startButton.addEventListener('click', startQuiz);
@@ -21,6 +22,8 @@ function startQuiz() {
     countdown();
     //show question container
     questionContainer.classList.remove('hide');
+    formSection.classList.add('hide');
+    scoreBoard.classList.add('hide');
     //show the 1st question
     displayQuestion();
 }
@@ -90,17 +93,16 @@ function displayQuestion() {
 }
 
 function checkAnswer(isCorrect) {
-    console.log(isCorrect)
+    console.log(isCorrect);
+      //increment questionIndex
     questionIndex++;
+    //if there are more questions call display question
         if(questionIndex < myQuestions.length) {
             displayQuestion()
+            //if not call end quiz
         } else {
             endQuiz();
         }
-    //display if correct
-    //increment questionIndex
-    //if there are more questions call display question
-    //if not call end quiz
 }
 
 function endQuiz(){
@@ -115,6 +117,9 @@ function endQuiz(){
 //this function is called whenever the button on the form is clicked
 function saveScore(){
     //save initials and score to local storage. Key initials, user entered string; key score, time remaining on timer.
+    var x = document.getElementById("myText").value;
+    document.getElementById("demo").innerHTML = x;
+    
 }
 
 document.addEventListener("click", function(event){
