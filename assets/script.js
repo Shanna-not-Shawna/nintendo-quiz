@@ -1,5 +1,5 @@
 // user experience:
-// User clicks Start to start quiz, (choose an answer, see feedback, go to next question) X5, when all questions are answered OR time is up, user will be at the Game Over screen and asked to enter initials for the high score page. User then has the option to go back to start or erase high scores. 
+// User clicks Start to start quiz, (choose an answer, see feedback, go to next question) * 5, when all questions are answered OR time is up, the Game Over screen will appear and user will be asked to enter initials for the high score page. User then has the option to go back to start or erase high scores. 
 
 
 
@@ -9,13 +9,7 @@ var formSection = document.getElementById("form");
 var scoreBoard = document.getElementById("highscore");
 var startButton = document.getElementById("start-btn");
 var countdownText = document.getElementById("countdown-text");
-
-
-
-
-// add event listener to listen for click on target 
-// startButton.addEventListener("click");
-
+var question = document.createElement("h2");
 
 // function startQuiz - hides start section, unhides question section which populates with 1st Q, starts timer
 startButton.addEventListener('click', startQuiz);
@@ -34,7 +28,7 @@ function startQuiz() {
 
 // add more time 
 function countdown() {
-    var timeLeft = 10;
+    var timeLeft = 80;
 
     var timeInterval = setInterval(function () {
 
@@ -81,10 +75,7 @@ var myQuestions = [{
 
 function displayQuestion() {
     questionContainer.innerHTML = "";
-
     var currentQuestion = myQuestions[questionIndex];
-    var question = document.createElement("h2");
-
     question.textContent = currentQuestion.questionText;
     questionContainer.append(question)
 
@@ -113,15 +104,16 @@ function checkAnswer(isCorrect) {
 
 function endQuiz(){
     //show the form
-
+    formSection.classList.remove('hide');
     //hide the quiz section
-
-    //do things with timer
+    questionContainer.classList.add('hide');
+    //freeze and record timer
 }
+
 
 //this function is called whenever the button on the form is clicked
 function saveScore(){
-    //save initals and score to local storage
+    //save initials and score to local storage. Key initials, user entered string; key score, time remaining on timer.
 }
 
 document.addEventListener("click", function(event){
@@ -129,16 +121,3 @@ document.addEventListener("click", function(event){
 
     checkAnswer(event.target.dataset.correct);
 })
-// myQuestions[0].questionText
-// myQuestions[0].choices[1]
-// myQuestions[0].correctAnswer
-
-// on click, move forward in Array
-
-// on click
-// myQuestions[1].questionText
-// myQuestions[1].choices[1]
-// myQuestions[1].correctAnswer
-
-
-//form button - local storage

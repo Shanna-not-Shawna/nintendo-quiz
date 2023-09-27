@@ -2,20 +2,57 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.h2 {
+    font-size: 35px;
+    color: purple;
+}
+
 .button {
     background-color: gray;
     border-radius: 12px;
-    border: 2px solid rgb(65, 65, 65);
+    border: 4px solid rgb(65, 65, 65);
     color: rgb(65, 65,65);
+    font-size: 30px;
+    padding: 15px 32px;
 }
 
 .button:hover {
     background-color: white;
     border-radius: 12px;
-    border: 2px solid red;
+    border: 4px solid red;
     color: red;
+    font-size: 30px;
+    padding: 15px 32px;
+}
+
+.answer-btn {
+    background-color: gray;
+    border-radius: 12px;
+    border: 4px solid rgb(65, 65, 65);
+    color: rgb(65, 65,65);
+    font-size: 25px;
+    padding: 15px 32px;
+    margin-inline: 5px;
+}
+
+.answer-btn:hover {
+    background-color: white;
+    border-radius: 12px;
+    border: 4px solid red;
+    color: red;
+    font-size: 25px;
+    padding: 15px 32px;
+    margin-inline: 5px;
 }
 
 .hide{
     display: none;
+}
+
+#countdown-text {
+    text-align: right;
+}
+
+#starter {
+    text-align: center;
 }
