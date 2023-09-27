@@ -91,8 +91,13 @@ function displayQuestion() {
 
 function checkAnswer(isCorrect) {
     console.log(isCorrect)
-    // increment score 
+    questionIndex++;
+        if(questionIndex < myQuestions.length) {
+            displayQuestion()
 
+        } else {
+            endQuiz();
+        }
     //display if correct
 
     //increment questionIndex
