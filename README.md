@@ -12,7 +12,7 @@ Once completed, users will be able to start the quiz by clicking on the start bu
 Here is the live website. [Try it out!](https://shanna-not-shawna.github.io/nintendo-quiz/)
 
 
-![Screenshot of password generator](./assets/nintendoscreenshot.png)
+![Screenshot of password generator](./assets/images/nintendoscreenshot.png)
 
 ## Credits
 
