@@ -7,21 +7,30 @@
     <link rel="stylesheet" href="./assets/style.css"/>
 </head>
 <body>
-  <h2 id="countdown-text"></h2>
+    <section>
+    <h2 id="countdown-text"></h2>
+    <h2 id="scoreboard-link"><a href="#highscore">View High Scores</a></h2>
+    </section>
+    <br>
+    <br>
     <section id="starter">
     <h2 id="title">The Nintendo Quiz</h2>  
     <button id="start-btn" class="button">Start</button>
     </section>
     <section id="questionSection" class="hide">
+      <hr>
     </section>
     <section id="form" class="hide">
     <h2 id="endQuiz">Game over!</h2><br>
-    <input type="text" id="myText" value="Enter your initials">
+    <input type="text" id="myText" placeholder="Enter your initials">
+    <button id="submit-btn">Submit</button>
     </section>
-    <section id="highscore">
+    <section id="scoreBoard" class="hide">
+      <div id="scoresContainer"></div>
     </section>
-    <section>
-    <h3 id="feedback" class="hide"></h3>
+    <!-- removed hide class for feedback -->
+    <section id="feedbackContainer">
+      <h2 id="feedback"></h2>
     </section>
     <script src="./assets/script.js"></script>
   </body>
