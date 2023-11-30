@@ -1,23 +1,23 @@
 // user experience:
 // User clicks Start to start quiz, (choose an answer, see feedback, go to next question) * 5, when all questions are answered OR time is up, the Game Over screen will appear and user will be asked to enter initials for the high score page. User then has the option to go back to start or erase high scores. 
-
-
 var startSection = document.getElementById("starter");
 var questionContainer = document.getElementById("questionSection");
 var formSection = document.getElementById("form");
 var scoreBoard = document.getElementById("highscore");
 var startButton = document.getElementById("start-btn");
+var highScoreButton = document.getElementById("high-scores");
 var countdownText = document.getElementById("countdown-text");
 var question = document.createElement("h2");
 var feedbackText = document.getElementById("feedback");
 var submitButton = document.getElementById("submit-btn");
-var timeLeft = 20;
+var timeLeft = 80;
 var timeInterval;
 var incorrectPenalty = 10;
 var createElP = document.createElement("p")
 
 // function startQuiz - hides start section, unhides question section which populates with 1st Q, starts timer
 startButton.addEventListener('click', startQuiz);
+
 
 function startQuiz() {
     //hide start section
@@ -98,7 +98,7 @@ function endQuiz(){
     formSection.classList.remove('hide');
     //hide the quiz section
     questionContainer.classList.add('hide');
-    questionContainer.classList.remove('hide');
+    // questionContainer.classList.remove('hide');
     //freeze clock and store the time left on timer to be used for scoreboard
     // Use `clearInterval()` to stop the timer
     clearInterval(timeInterval);
@@ -106,7 +106,7 @@ function endQuiz(){
 
 function checkAnswer(isCorrect) {
     console.log(isCorrect);
-    displayResult(isCorrect);  // Pass the correct value here
+    displayResult(isCorrect);
     setTimeout(function () {
         questionIndex++;
         // if there are more questions call display question
@@ -116,7 +116,7 @@ function checkAnswer(isCorrect) {
         } else {
             endQuiz();
         }
-    }, 2000);
+    }, 1000);
 }
 
 function displayResult(isCorrect) {
@@ -157,13 +157,19 @@ function showScores(){
     for (const score of topScores) {
         scoresHTML += `
         <ul>
-        <li>${score.initials} ${score.timeLeft}</li>
+        <li>${score.initials} .................... ${score.timeLeft}</li>
         </ul>
         `
     }
     scoresContainer.innerHTML = scoresHTML;
+    formSection.classList.add('hide');
+    scoreBoard.classList.remove('hide');
+    questionContainer.classList.add('hide');
+    startSection.classList.add('hide');
 
 }
+
+highScoreButton.addEventListener('click', showScores);
 
 document.addEventListener("click", function(event){
     if(event.target.className !== "answer-btn") return;

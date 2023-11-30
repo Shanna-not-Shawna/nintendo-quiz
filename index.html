@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="./assets/style.css"/>
 </head>
 <body>
-    <section>
-    <h2 id="countdown-text"></h2>
-    <h2 id="scoreboard-link"><a href="#highscore">View High Scores</a></h2>
+    <section id="countdown-section">
+      <button id="high-scores">View High Scores</button>
+    </section>
+    <section id="timer-section">
+    <h3 id="countdown-text"></h3>
     </section>
     <br>
     <br>
@@ -25,8 +27,10 @@
     <input type="text" id="myText" placeholder="Enter your initials">
     <button id="submit-btn">Submit</button>
     </section>
-    <section id="scoreBoard" class="hide">
+    <section id="highscore" class="hide">
+      <h2>High Scores</h2>
       <div id="scoresContainer"></div>
+      <button id="play-again" onClick="window.location.reload()">Play Again</button>
     </section>
     <!-- removed hide class for feedback -->
     <section id="feedbackContainer">
